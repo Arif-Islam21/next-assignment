@@ -21,6 +21,11 @@ const getDayType = (day) => {
   if (typeof day != "string" || !daysLowerCase.includes(dayLowerCase)) {
     return "Invalid Day";
   }
+  if (dayLowerCase === "friday" || dayLowerCase === "saturday") {
+    return "Weekend";
+  } else {
+    return "Working Day";
+  }
 };
 
-console.log(getDayType("Tuesdayy"));
+console.log(getDayType("FRiday"));
