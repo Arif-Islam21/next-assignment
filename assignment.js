@@ -28,4 +28,18 @@ const getDayType = (day) => {
   }
 };
 
-console.log(getDayType("FRiday"));
+const validateUsername = (name) => {
+  const nameLowerCase = name.toLowerCase();
+  if (typeof name !== "string") {
+    return "Invalid user name";
+  }
+  if (nameLowerCase.length < 4) {
+    return "Too Short";
+  } else if (nameLowerCase.includes(" ")) {
+    return "No Space Allowed";
+  } else if (nameLowerCase.includes("admin")) {
+    return "Reserved Word";
+  } else {
+    return "Available";
+  }
+};
