@@ -28,6 +28,7 @@ const getDayType = (day) => {
   }
 };
 
+// Question 3
 const validateUsername = (name) => {
   const nameLowerCase = name.toLowerCase();
   if (typeof name !== "string") {
@@ -60,4 +61,26 @@ const getCngFare = (distance, isNight = false, waitingMinutes = 0) => {
     totalFare += fareWithExtraCharge;
   }
   return totalFare;
+};
+
+// Question 4
+const getChaseVerdict = (target, scored, ballsLeft) => {
+  const runsNeeded = target - scored;
+  const requiredRate = (runsNeeded / ballsLeft) * 6;
+  let Verdict = "";
+
+  if (runsNeeded <= 0) {
+    return "Won";
+  } else if (ballsLeft <= 0) {
+    return "Lost";
+  }
+  if (requiredRate <= 6) {
+    Verdict = "Comfortable";
+  } else if (requiredRate > 6 && requiredRate <= 12) {
+    Verdict = "Tough";
+  } else {
+    Verdict = "Almost Impossible";
+  }
+
+  return `Need ${runsNeeded} runs in ${ballsLeft} balls | ${Verdict}`;
 };
