@@ -43,3 +43,21 @@ const validateUsername = (name) => {
     return "Available";
   }
 };
+
+// Question 4
+const getCngFare = (distance, isNight = false, waitingMinutes = 0) => {
+  let totalFare = 0;
+  if (distance <= 2) {
+    totalFare = 50;
+  } else if (distance > 2) {
+    totalFare = 50 + (distance - 2) * 15;
+  }
+  if (waitingMinutes) {
+    totalFare += waitingMinutes * 2;
+  }
+  if (isNight) {
+    const fareWithExtraCharge = (totalFare * 20) / 100;
+    totalFare += fareWithExtraCharge;
+  }
+  return totalFare;
+};
